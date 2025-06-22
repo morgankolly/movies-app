@@ -23,6 +23,7 @@ async function movie() {
 
         moviedata.forEach(movie => {
             const item = movie.node;
+            
             console.log("item", item)
             const movieElement = document.createElement('div');
             movieElement.className = 'article';
@@ -30,6 +31,8 @@ async function movie() {
              <img class="image" src="${item.primaryImage.url}" />
               <h2>${item.titleText.text}</h2>
               <p>${item.plot.plotText.plainText}</p>
+              <button class="watch" >Watch Now</button>
+              <button class="download" >Download</button>
               
             `;
       
