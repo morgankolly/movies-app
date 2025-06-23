@@ -36,6 +36,7 @@ h2{
     z-index: 1;
     bottom: 125%;
     left: 50%;
+    border-radius: 70px;
 
 }
 p{
@@ -48,4 +49,34 @@ p{
     position: relative;
     overflow: visible;
     transition: transform 0.3s ease;
+}
+button{
+     font-size:25px;
+     padding-left: 2px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    padding-top: 10px;
+    color: rgb(14, 3, 3);
+    position: relative;
+    overflow: visible;
+    transition: transform 0.5ms ease;
+}
+.watch{
+    position: relative;
+    padding: 10px;
+    background-color: rgb(34, 180, 90);
+    border-radius: 25px;
+    border-color: rgb(2, 29, 20);
+    transition-behavior: smooth;
+    cursor: pointer;
+}
+.download{
+    position: relative;
+    padding: 10px;
+    background-color: rgb(22, 171, 47);
+    border-radius: 25px;
+    border-color: rgb(2, 29, 20);
+    transition-behavior: smooth;
+    cursor: pointer;
+
 }

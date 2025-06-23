@@ -24,14 +24,14 @@ async function movie() {
         moviedata.forEach(movie => {
             const item = movie.node;
             
-            console.log("item", item)
+            console.log("item", item.id)
             const movieElement = document.createElement('div');
             movieElement.className = 'article';
             movieElement.innerHTML = `
              <img class="image" src="${item.primaryImage.url}" />
               <h2>${item.titleText.text}</h2>
               <p>${item.plot.plotText.plainText}</p>
-              <button class="watch" >Watch Now</button>
+              <a href="details.html?id=${item.id}" class="watch" >Watch Now</a>
               <button class="download" >Download</button>
               
             `;
