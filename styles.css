@@ -60,6 +60,7 @@ button{
     position: relative;
     overflow: visible;
     transition: transform 0.5ms ease;
+    align-items: center;
 }
 .watch{
     position: relative;
