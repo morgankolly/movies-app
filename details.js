@@ -1,7 +1,7 @@
 const parentElement = document.getElementById('movies');
 
 
-async function movie() {
+async function details() {
 const url = 'https://imdb236.p.rapidapi.com/api/imdb/tt0816692/tmdb-id';
 const options = {
 	method: 'GET',
@@ -14,19 +14,18 @@ const options = {
 try {
 	const response = await fetch(url, options);
 	const result = await response.json();
-	console.log("result",result)
-	  console.log('moviedata',moviedata);
+	console.log("result",result); 
 
 	        moviedata.forEach(movie => {
             const item = movie.id;
             
-            console.log("item", item.id)
+            console.log("item", item.url)
             const movieElement = document.createElement('div');
             movieElement.className = 'article';
             movieElement.innerHTML = `
-              <h2>${item.id.id}</h2>
-			  <p>${item.url.url}</p>
-              <p>${item.tmbdId.tmbdId}</p>
+              <h2>${item.id}</h2>
+			  <p>${item.url}</p>
+              <p>${item.tmbdId}</p>
               
             `;
       
@@ -41,5 +40,5 @@ try {
 }
 
     
-movie();
+details();
 

@@ -31,7 +31,8 @@ async function movie() {
              <img class="image" src="${item.primaryImage.url}" />
               <h2>${item.titleText.text}</h2>
               <p>${item.plot.plotText.plainText}</p>
-              <a href="details.html?id=${item.id}" class="watch" >Watch Now</a>
+              <a href="https://www.imdb.com/title?id=${item.id}" class="watch" >Watch Now</a>
+              <script scr="details.js"> </script>
               <button class="download" >Download</button>
               
             `;
