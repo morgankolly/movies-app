@@ -2,7 +2,7 @@ const parentElement = document.getElementById('movies');
 
 
 async function details() {
-const url = 'https://imdb236.p.rapidapi.com/api/imdb/tt0816692/tmdb-id';
+const url = 'https://imdb236.p.rapidapi.com/api/imdb/tt0816692/tmdb-id'
 const options = {
 	method: 'GET',
 	headers: {

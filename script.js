@@ -4,34 +4,36 @@ const parentElement = document.getElementById('movies');
 
 
 async function movie() {
-    const url = 'https://imdb8.p.rapidapi.com/title/v2/get-popular?first=20&country=US&language=en-US';
+    const url = 'https://movies-ratings2.p.rapidapi.com/ratings?id=tt0111161';
     const options = {
         method: 'GET',
         headers: {
-            'x-rapidapi-key': 'b32b594d15msheae9e8c4e22156dp189a95jsn0132b6b8dd53',
-            'x-rapidapi-host': 'imdb8.p.rapidapi.com'
+          		'x-rapidapi-key': 'b32b594d15msheae9e8c4e22156dp189a95jsn0132b6b8dd53',
+		'x-rapidapi-host': 'movies-ratings2.p.rapidapi.com'
         }
     };
     
     try {
         const response = await fetch(url, options);
-        const result = await response.json();
-        console.log("result", result)
-        const moviedata = result.data.movies.edges
-        const tvshow = result.data.tv
-        console.log('movieData',moviedata);
+        const moviedata = await response.json();
+        console.log("result", moviedata)
+        console.log('moviedata',moviedata);
 
         moviedata.forEach(movie => {
-            const item = movie.node;
+            const item = movie.big_image;
             
-            console.log("item", item.id)
+            const description = limitString(movie.description, 150);
+            const title = limitString(movie.title, 25);
             const movieElement = document.createElement('div');
             movieElement.className = 'article';
             movieElement.innerHTML = `
-             <img class="image" src="${item.primaryImage.url}" />
-              <h2>${item.titleText.text}</h2>
-              <p>${item.plot.plotText.plainText}</p>
-              <a href="https://www.imdb.com/title?id=${item.id}" class="watch" >Watch Now</a>
+             <img  class="image"  src="${movie.big_image}"  />
+              // <h2>${title}</h2>
+              // <h4>${movie}</4>
+              // <p>${description}</p>
+
+              <a href="https://www.imdb.com/title/${movie.imdbid}" class="watch" >Watch Now</a>
+
               <script scr="details.js"> </script>
               <button class="download" >Download</button>
               
@@ -42,10 +44,16 @@ async function movie() {
 
 
     } catch (error) {
-        console.error(moviedata);
+        console.error(error);
     }
     
     }
 
     
-movie();
+movie(); 
+function limitString(str, maxLength) {
+  if (str.length > maxLength) {
+    return str.slice(0, maxLength);
+  }
+  return str;
+}
